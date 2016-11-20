@@ -31,3 +31,13 @@ class PageTasks(BasePage):
 
     def first_task_has_element(self):
         return local_web_elements.MyWebElement(self.driver).has_element(locator_at_tasks_page.Tasks.FIRST_TASK_ON_THE_LIST_LINK_TEXT)
+
+    def manager_subtask_button_is_enable(self):
+        return local_web_elements.MyWebElement(self.driver).is_element_enabled(locator_at_tasks_page.Tasks.MANAGER_SUBTASK_BUTTON, 'manager_subtask_button_is_enable')
+
+    def get_number_of_subtask_at_button(self):
+        return local_web_elements.MyWebElement(self.driver).get_result(locator_at_tasks_page.Tasks.MANAGER_SUBTASK_BUTTON, 'get_number_of_subtask_at_button')
+
+    def click_manage_subtask_button(self):
+        return local_web_elements.MyWebElement(self.driver).click(locator_at_tasks_page.Tasks.MANAGER_SUBTASK_BUTTON, 'click_manage_subtask_button')
+

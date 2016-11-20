@@ -4,52 +4,43 @@ Feature: US01 - Create Task
   I should be able to create a task
   So I can manage my tasks
 
-  Scenario: Add a new task by clicking on the add task button
-    Given I'm logged in
+  Scenario: Adding a 2 char task name
+    Given I'm logged in at ave code assessment web site
+    When I type an invalid task name with 2 chars
+    And press add button
+    Then this new entrance do not appear at to do list appending
+
+  Scenario: Adding a 251 char task name
+    Given I'm logged in at ave code assessment web site
+    When I type an invalid task name with 251 chars
+    And press add button
+    Then this new entrance do not appear at to do list appending
+
+
+  Scenario: Add a new task by clicking on the add button
+    Given I'm logged in at ave code assessment web site
     When I type a new task
-    And press the task button
-    Then this new task is added to the to do list
+    And press add button
+    Then this new task entrance is added to the to do list
 
   Scenario: Add a new task by hitting enter
-    Given I'm logged in
+    Given I'm logged in at ave code assessment web site
     When I type a new task
     And press the enter keyboard button
-    Then this new task is added to the to do list
+    Then this new task entrance is added to the to do list
 
-  Scenario: Check ‘My Tasks’ link visibility through the hole website
-    Given I'm logged in
-    When I'm navigatting through the web site
-    Then I should be able to see My Task link
+  Scenario: ‘My Tasks’ link is visible through the website
+    Given I'm logged in at ave code assessment web site
+    When I'm navigatting at the web site
+    Then I should be able to see My Task link button
 
-  Scenario: Go to to do list clicking on My Task link
-    Given I'm logged in
-    When I click at My Task link
-    Then the web site sends me to the user's To Do list
+  Scenario: Click on My Task link button
+    Given I'm logged in at ave code assessment web site
+    When I click at My Task link button
+    Then the website sends me to the renata's To Do list
 
-  Scenario: Check ownership message
-    Given I'm logged in
-    When I'm at My Task page
-    Then I should see a ownership message saying that this list belongs to the logged user
-
-  Scenario: Check ownership message at the top part of the web site
-    Given I'm logged in
-    When I'm at My Task page
-    Then I should see a ownership on the top part saying that list belongs to the logged user
-
-  Scenario: Enter a 2 char task name
-    Given I'm logged in
-    And I enter a 2 char task name
-    When hit enter
-    Then the app do not allow this new entrance
-
-  Scenario: Enter a 251 char task name
-    Given I'm logged in
-    And I enter a 251 char task name
-    When I hit enter
-    Then the app do not allow this new entrance
-
-  Scenario: The new task added appear at appended list
-    Given I'm logged in
-    And Add a new task
-    When I hit add button
-    Then the new task appear at the appended list
+  Scenario: Ownership message is enable
+    Given I'm logged in at ave code assessment web site
+    When I click at My Task link button
+    Then I should see an ownership message saying that this list belongs to the logged user
+    And this message is on the top part of the website

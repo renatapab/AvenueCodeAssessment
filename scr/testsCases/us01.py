@@ -21,7 +21,7 @@ class CreateTask(unittest.TestCase):
 
     def setUp(self):
         # Headless
-        # self.driver = webdriver.PhantomJS(executable_path=r"C:\PhantomJS\bin\phantomjs.exe")
+        # self.driver = webdriver.PhantomJS(executable_path=r"C:\Projetos\configs\PhantomJS\bin\phantomjs.exe")
         # With Head (Shows the Browser)
         # To show test running at chromes browsers, just remove the comments from these two next line
         # and comment the above line
@@ -94,7 +94,6 @@ class CreateTask(unittest.TestCase):
         tasks_page = page_tasks.PageTasks(self.driver)
         # Login
         print '\ntest_adding_new_task_pressing_button'
-        navbar.click_sign_in_link()
         login_page.type_email()
         login_page.type_password()
         login_page.click_login_button()
@@ -219,3 +218,6 @@ class CreateTask(unittest.TestCase):
         self.assertTrue(tasks_page.first_task_has_element())
         self.driver.close()
         print 'END'
+
+    def tearDown(self):
+        self.driver.quit()

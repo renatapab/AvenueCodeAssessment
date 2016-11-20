@@ -111,3 +111,13 @@ class MyWebElement(BasePage):
         except NoSuchElementException as e:
             print(local_messages.exception_message + ('%s' % e))
             self.driver.quit()
+
+    def get_placeholder_attribute(self, selector, element_description):
+        try:
+            element = self.driver.find_element(*selector)
+            value = element.get_attribute('placeholder')
+            print(element_description + ' ' + local_messages.executed)
+            return value
+        except NoSuchElementException as e:
+            print(local_messages.exception_message + ('%s' % e))
+            self.driver.quit()
